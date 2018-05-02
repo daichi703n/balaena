@@ -1,0 +1,2 @@
+docker run -it --rm --name test -p 8080:80 -v /opt/docker-compose/vlan-tag/config/php:/var/www/html php:7.0-apache
+docker run -it --rm --name test -p 8080:80 -v /opt/docker-compose/vlan-tag/config/php:/home php:alpine php -S 0.0.0.0:80
