@@ -4,7 +4,10 @@ services:
   vlan20:
     image: alpine
     container_name: container-vlan20
-    command: ['tail', '-f', '/dev/null']
+    #command: ['tail', '-f', '/dev/null']
+    volumes:
+      - ./config/command.sh:/tmp/command.sh
+    command: sh /tmp/command.sh
     networks:
       vlan20:
         ipv4_address: 192.168.20.201
@@ -13,7 +16,8 @@ services:
   vlan30:
     image: alpine
     container_name: container-vlan30
-    command: ['tail', '-f', '/dev/null']
+    #command: ['tail', '-f', '/dev/null']
+    command: ['ping', '-c', '3', '8.8.8.8']
     networks:
       vlan30:
         ipv4_address: 192.168.30.201
